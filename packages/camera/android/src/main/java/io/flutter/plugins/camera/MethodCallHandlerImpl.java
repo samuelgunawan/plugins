@@ -123,6 +123,16 @@ final class MethodCallHandlerImpl implements MethodChannel.MethodCallHandler {
           }
           break;
         }
+      case "enableFlash":
+      {
+        try {
+          camera.setFlash(call.argument("flash"));
+        } catch (Exception e) {
+          handleException(e, result);
+        }
+        break;
+      }
+
       case "dispose":
         {
           if (camera != null) {
